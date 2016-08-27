@@ -82,7 +82,7 @@ We use [groundhog-day](https://github.com/guidesmiths/groundhog-day) for fixing 
 ## Getting / Setting Joda
 ```world-clock``` exposes it's version of js-joda in joda.js
 ```js
-    const joda = require('world-clock/joda')
+const joda = require('world-clock/joda')
 ```
 You can also supply the version of js-joda that ```world-clock``` will use by providing it as an option
 ```js
