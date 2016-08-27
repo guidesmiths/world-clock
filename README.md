@@ -1,4 +1,8 @@
 # world-clock
+A library for getting dates/times in explicit timezones, underwritten by [js-joda](https://github.com/js-joda/js-joda) and [zoneinfo](https://github.com/gsmcwhirter/node-zoneinfo). 
+
+## Caveats
+[zoneinfo](https://github.com/gsmcwhirter/node-zoneinfo) parses zoneinfo files from ```/usr/share/zoneinfo```. This library will not work on windows.
 
 ## Getting the current time in a specific time zone
 ```js
