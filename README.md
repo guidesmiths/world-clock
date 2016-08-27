@@ -40,13 +40,11 @@ worldClock.zonedDateTime('UTC').toString()            // 2016-08-27T14:03.24+00:
 const worldClock = require('world-clock')()
 const millis = new Date('2016-08-27T14:03.24+00:00').getTime()
 
-worldClock.today('Europe/London', millis).toString()          // 2016-08-27
 worldClock.localDate('Europe/London', millis).toString()      // 2016-08-27 - same as today
 worldClock.localTime('Europe/London', millis).toString()      // 15:03:24
 worldClock.localDateTime('Europe/London', millis).toString()  // 2016-08-27T15:03.24
 worldClock.zonedDateTime('Europe/London', millis).toString()  // 2016-08-27T15:03.24+01:00
 
-worldClock.today('UTC', millis).toString()                    // 2016-08-27
 worldClock.localDate('UTC', millis).toString()                // 2016-08-27 - same as today
 worldClock.localTime('UTC', millis).toString()                // 14:03:24
 worldClock.localDateTime('UTC', millis).toString()            // 2016-08-27T14:03.24
