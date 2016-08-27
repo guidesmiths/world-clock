@@ -61,7 +61,9 @@ worldClock.zonedDateTime('SYSTEM').toString()  // 2016-08-27T15:03.24+01:00[SYST
 ## Fixing dates
 For automatied testing it can be handy to fix time to a known instant. ```world-clock``` can be passed any 'nowable' object, i.e. one that exposes a ```now()``` function. e.g.
 ```js
-const worldClock = require('world-clock')({ now: () => new Date('2016-08-27T15:03.24+01:00Z').now() })
+const worldClock = require('world-clock')({ 
+  now: () => new Date('2016-08-27T15:03.24+01:00Z').now()
+})
 
 worldClock.today('Europe/London').toString()          // 2016-08-27
 ```
