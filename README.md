@@ -3,6 +3,12 @@
 # world-clock
 A library for getting dates/times in explicit timezones, underwritten by [js-joda](https://github.com/js-joda/js-joda) and [zoneinfo](https://github.com/gsmcwhirter/node-zoneinfo). The latter parses zoneinfo files from ```/usr/share/zoneinfo```. Therefore this library will not work on windows.
 
+## Why not use moment-timezone
+[moment-timezone](https://github.com/moment/moment-timezone) is mutable which can result in hard to diagnose bugs. It lacks support for local dates/times and is restricted by trying to remain compatible with [moment](https://github.com/moment/moment).
+
+## Why not use js-joda
+[js-joda](https://github.com/js-joda/js-joda) cannot yet convert timezone names (e.g. 'Europe/London') to its internal representation of a timezone. Until they implement this you need to use the timezone offset, which varies depending on daylight saving. ```world-clock``` relies on [zoneinfo](https://github.com/gsmcwhirter/node-zoneinfo) to convert the timezone name to an offset, then passes the offset to [js-joda](https://github.com/js-joda/js-joda) to create immutable LocalDate/LocalTime/LocalDateTime/ZonedDateTime objects.
+
 ## API
 * worldClock([&lt;nowable&gt;])
 * worldClock().today(&lt;timezone&gt;) returns an instance of [js-joda.LocalDate](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDate.js~LocalDate.html)
