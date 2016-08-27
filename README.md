@@ -1,3 +1,5 @@
+[![Build Status](https://img.shields.io/travis/guidesmiths/world-clock/master.svg)](https://travis-ci.org/guidesmiths/world-clock)
+[![Code Style](https://img.shields.io/badge/code%20style-imperative-brightgreen.svg)](https://github.com/guidesmiths/eslint-config-imperative)
 # world-clock
 A library for getting dates/times in explicit timezones, underwritten by [js-joda](https://github.com/js-joda/js-joda) and [zoneinfo](https://github.com/gsmcwhirter/node-zoneinfo). The latter parses zoneinfo files from ```/usr/share/zoneinfo```. Therefore this library will not work on windows.
 
