@@ -59,11 +59,11 @@ worldClock.zonedDateTime('SYSTEM').toString()  // 2016-08-27T15:03.24+01:00[SYST
 ```
 
 ## Fixing dates
-For automatied testing it can be handy to fix time to a known instant. ```world-clock``` can be passed any object that exposes a ```now()``` method. e.g.
-
+For automatied testing it can be handy to fix time to a known instant. ```world-clock``` can be passed any 'nowable' object, i.e. one that exposes a ```now()``` function. e.g.
 ```js
-const fakeClock = require('groundhog-day').fake().fix('2015-07-24T15:03:24Z')
-const worldClock = require('world-clock')(fakeClock)
+const worldClock = require('world-clock')({ now: () => new Date('2016-08-27T15:03.24+01:00Z').now() })
 
 worldClock.today('Europe/London').toString()          // 2016-08-27
 ```
+We use [groundhog-day](https://github.com/guidesmiths/groundhog-day) for fixing time when testing.
+
