@@ -1,9 +1,9 @@
-const joda = require('js-joda')
 const zoneinfo = require('zoneinfo')
 
-module.exports = function(_clock) {
+module.exports = function(options) {
 
-    var clock = _clock || Date
+    var clock = options && options.nowable || Date
+    var joda = options && options.joda || require('js-joda')
 
     function offset(timezone, at) {
         return new zoneinfo.TZDate(at, timezone)._utcoffset()

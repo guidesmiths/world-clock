@@ -8,22 +8,22 @@ describe('World Clock', function() {
 
         it('Current time, no daylight savings, start of day', function() {
             fake.fix('2015-12-15T00:01:02Z')
-            assert.equal(wc(fake).today('Europe/London').toString(), '2015-12-15')
+            assert.equal(wc({ nowable: fake }).today('Europe/London').toString(), '2015-12-15')
         })
 
         it('Current time, no daylight savings, end of day', function() {
             fake.fix('2015-12-15T23:55:02Z')
-            assert.equal(wc(fake).today('Europe/London').toString(), '2015-12-15')
+            assert.equal(wc({ nowable: fake }).today('Europe/London').toString(), '2015-12-15')
         })
 
         it('Current time, daylight Savings, start of day', function() {
             fake.fix('2015-07-15T00:01:02Z')
-            assert.equal(wc(fake).today('Europe/London').toString(), '2015-07-15')
+            assert.equal(wc({ nowable: fake }).today('Europe/London').toString(), '2015-07-15')
         })
 
         it('Current time, daylight Savings, end of day', function() {
             fake.fix('2015-07-15T23:55:02Z')
-            assert.equal(wc(fake).today('Europe/London').toString(), '2015-07-16')
+            assert.equal(wc({ nowable: fake }).today('Europe/London').toString(), '2015-07-16')
         })
     })
 
@@ -31,22 +31,22 @@ describe('World Clock', function() {
 
         it('Current time, no daylight savings, start of day', function() {
             fake.fix('2015-12-15T00:01:02Z')
-            assert.equal(wc(fake).localDate('Europe/London').toString(), '2015-12-15')
+            assert.equal(wc({ nowable: fake }).localDate('Europe/London').toString(), '2015-12-15')
         })
 
         it('Current time, no daylight savings, end of day', function() {
             fake.fix('2015-12-15T23:55:02Z')
-            assert.equal(wc(fake).localDate('Europe/London').toString(), '2015-12-15')
+            assert.equal(wc({ nowable: fake }).localDate('Europe/London').toString(), '2015-12-15')
         })
 
         it('Current time, daylight savings, start of day', function() {
             fake.fix('2015-07-15T00:01:02Z')
-            assert.equal(wc(fake).localDate('Europe/London').toString(), '2015-07-15')
+            assert.equal(wc({ nowable: fake }).localDate('Europe/London').toString(), '2015-07-15')
         })
 
         it('Current time, daylight savings, end of day', function() {
             fake.fix('2015-07-15T23:55:02Z')
-            assert.equal(wc(fake).localDate('Europe/London').toString(), '2015-07-16')
+            assert.equal(wc({ nowable: fake }).localDate('Europe/London').toString(), '2015-07-16')
         })
 
         it('Custom time, no daylight savings, start of day', function() {
@@ -70,22 +70,22 @@ describe('World Clock', function() {
 
         it('Current time, no daylight savings, start of day', function() {
             fake.fix('2015-12-15T00:01:02Z')
-            assert.equal(wc(fake).localTime('Europe/London').toString(), '00:01:02')
+            assert.equal(wc({ nowable: fake }).localTime('Europe/London').toString(), '00:01:02')
         })
 
         it('Current time, no daylight savings, end of day', function() {
             fake.fix('2015-12-15T23:55:02Z')
-            assert.equal(wc(fake).localTime('Europe/London').toString(), '23:55:02')
+            assert.equal(wc({ nowable: fake }).localTime('Europe/London').toString(), '23:55:02')
         })
 
         it('Current time, daylight savings, start of day', function() {
             fake.fix('2015-07-15T00:01:02Z')
-            assert.equal(wc(fake).localTime('Europe/London').toString(), '01:01:02')
+            assert.equal(wc({ nowable: fake }).localTime('Europe/London').toString(), '01:01:02')
         })
 
         it('Current time, daylight savings, end of day', function() {
             fake.fix('2015-07-15T23:55:02Z')
-            assert.equal(wc(fake).localTime('Europe/London').toString(), '00:55:02')
+            assert.equal(wc({ nowable: fake }).localTime('Europe/London').toString(), '00:55:02')
         })
 
         it('Custom time, no daylight savings, start of day', function() {
@@ -109,22 +109,22 @@ describe('World Clock', function() {
 
         it('Current time, no daylight savings, start of day', function() {
             fake.fix('2015-12-15T00:01:02Z')
-            assert.equal(wc(fake).localDateTime('Europe/London').toString(), '2015-12-15T00:01:02')
+            assert.equal(wc({ nowable: fake }).localDateTime('Europe/London').toString(), '2015-12-15T00:01:02')
         })
 
         it('Current time, no daylight savings, end of day', function() {
             fake.fix('2015-12-15T23:55:02Z')
-            assert.equal(wc(fake).localDateTime('Europe/London').toString(), '2015-12-15T23:55:02')
+            assert.equal(wc({ nowable: fake }).localDateTime('Europe/London').toString(), '2015-12-15T23:55:02')
         })
 
         it('Current time, daylight savings, start of day', function() {
             fake.fix('2015-07-15T00:01:02Z')
-            assert.equal(wc(fake).localDateTime('Europe/London').toString(), '2015-07-15T01:01:02')
+            assert.equal(wc({ nowable: fake }).localDateTime('Europe/London').toString(), '2015-07-15T01:01:02')
         })
 
         it('Current time, daylight savings, end of day', function() {
             fake.fix('2015-07-15T23:55:02Z')
-            assert.equal(wc(fake).localDateTime('Europe/London').toString(), '2015-07-16T00:55:02')
+            assert.equal(wc({ nowable: fake }).localDateTime('Europe/London').toString(), '2015-07-16T00:55:02')
         })
 
         it('Custom time, no daylight savings, start of day', function() {
@@ -148,22 +148,22 @@ describe('World Clock', function() {
 
         it('Current time, no daylight savings, start of day', function() {
             fake.fix('2015-12-15T00:01:02Z')
-            assert.equal(wc(fake).zonedDateTime('Europe/London').toString(), '2015-12-15T00:01:02Z')
+            assert.equal(wc({ nowable: fake }).zonedDateTime('Europe/London').toString(), '2015-12-15T00:01:02Z')
         })
 
         it('Current time, no daylight savings, end of day', function() {
             fake.fix('2015-12-15T23:55:02Z')
-            assert.equal(wc(fake).zonedDateTime('Europe/London').toString(), '2015-12-15T23:55:02Z')
+            assert.equal(wc({ nowable: fake }).zonedDateTime('Europe/London').toString(), '2015-12-15T23:55:02Z')
         })
 
         it('Current time, daylight savings, start of day', function() {
             fake.fix('2015-07-15T00:01:02Z')
-            assert.equal(wc(fake).zonedDateTime('Europe/London').toString(), '2015-07-15T01:01:02+01:00')
+            assert.equal(wc({ nowable: fake }).zonedDateTime('Europe/London').toString(), '2015-07-15T01:01:02+01:00')
         })
 
         it('Current time, daylight savings, end of day', function() {
             fake.fix('2015-07-15T23:55:02Z')
-            assert.equal(wc(fake).zonedDateTime('Europe/London').toString(), '2015-07-16T00:55:02+01:00')
+            assert.equal(wc({ nowable: fake }).zonedDateTime('Europe/London').toString(), '2015-07-16T00:55:02+01:00')
         })
 
         it('Custom time, no daylight savings, start of day', function() {

@@ -69,10 +69,26 @@ worldClock.zonedDateTime('SYSTEM').toString()  // 2016-08-27T15:03.24+01:00[SYST
 ## Fixing dates
 For automatied testing it can be handy to fix time to a known instant. ```world-clock``` can be passed any 'nowable' object, i.e. one that exposes a ```now()``` function. e.g.
 ```js
-const worldClock = require('world-clock')({
-    now: () => new Date('2016-08-27T14:03.24Z').getTime()
-})
+const options = {
+    nowable: {
+        now: () => new Date('2016-08-27T14:03.24Z').getTime()
+    }
+}
+const worldClock = require('world-clock')(options)
 
 worldClock.today('Europe/London').toString()          // 2016-08-27
 ```
 We use [groundhog-day](https://github.com/guidesmiths/groundhog-day) for fixing time when testing.
+
+## Getting / Setting Joda
+```world-clock``` exposes it's version of js-joda in joda.js
+```js
+    const joda = require('world-clock/joda')
+```
+You can also supply the version of js-joda that ```world-clock``` will use by providing it as an option
+```js
+const options = {
+    joda: require('js-joda')
+}
+const worldClock = require('world-clock')(options)
+```
