@@ -4,6 +4,14 @@ A library for getting dates/times in explicit timezones, underwritten by [js-jod
 ## Caveats
 [zoneinfo](https://github.com/gsmcwhirter/node-zoneinfo) parses zoneinfo files from ```/usr/share/zoneinfo```. This library will not work on windows.
 
+## API
+const worldClock = require('world-clock')()
+```worldClock.today(<timezone>)``` returns an instance of ```js-joda.LocalDate```
+```worldClock.localDate(<timezone>, [<millis>])``` returns an instance of ```js-joda.LocalDate```
+```worldClock.localTime(<timezone>, [<millis>])``` returns an instance of ```js-joda.LocalTime```
+```worldClock.localDateTime(<timezone>, [<millis>])``` returns an instance of ```js-joda.LocalDateTime```
+```worldClock.zonedDateTime(<timezone>, [<millis>])``` returns an instance of ```js-joda.zonedDateTime```
+
 ## Getting the current time in a specific time zone
 ```js
 // Assuming the time is 2016-08-27T14:03.24+00:00
