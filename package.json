@@ -22,7 +22,6 @@
   "author": "GuideSmiths Ltd",
   "license": "ISC",
   "dependencies": {
-    "husky": "^0.11.6",
     "js-joda": "^1.1.9",
     "zoneinfo": "^0.1.8"
   },
