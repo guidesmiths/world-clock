@@ -5,12 +5,11 @@ A library for getting dates/times in explicit timezones, underwritten by [js-jod
 [zoneinfo](https://github.com/gsmcwhirter/node-zoneinfo) parses zoneinfo files from ```/usr/share/zoneinfo```. This library will not work on windows.
 
 ## API
-const worldClock = require('world-clock')()
-```worldClock.today(<timezone>)``` returns an instance of ```js-joda.LocalDate```
-```worldClock.localDate(<timezone>, [<millis>])``` returns an instance of ```js-joda.LocalDate```
-```worldClock.localTime(<timezone>, [<millis>])``` returns an instance of ```js-joda.LocalTime```
-```worldClock.localDateTime(<timezone>, [<millis>])``` returns an instance of ```js-joda.LocalDateTime```
-```worldClock.zonedDateTime(<timezone>, [<millis>])``` returns an instance of ```js-joda.zonedDateTime```
+* worldClock.today(<timezone>) returns an instance of [js-joda.LocalDate](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDate.js~LocalDate.html)
+* worldClock.localDate(<timezone>, [<millis>]) returns an instance of [js-joda.LocalDate](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDate.js~LocalDate.html)
+* worldClock.localTime(<timezone>, [<millis>]) returns an instance of [js-joda.LocalTime](https://js-joda.github.io/js-joda/esdoc/class/src/LocalTime.js~LocalTime.html)
+* worldClock.localDateTime(<timezone>, [<millis>]) returns an instance of [js-joda.LocalDateTime](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDateTime.js~LocalDateTime.html)
+* worldClock.zonedDateTime(<timezone>, [<millis>]) returns an instance of [js-joda.ZonedDateTime](https://js-joda.github.io/js-joda/esdoc/class/src/ZonedDateTime.js~ZonedDateTime.html)
 
 ## Getting the current time in a specific time zone
 ```js
