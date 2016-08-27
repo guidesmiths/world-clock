@@ -78,7 +78,7 @@ worldClock.today('Europe/London').toString()          // 2016-08-27
 We use [groundhog-day](https://github.com/guidesmiths/groundhog-day) for fixing time when testing.
 
 ## Getting / Setting Joda
-```world-clock``` exposes it's version of js-joda in joda.js
+```world-clock``` exposes its version of js-joda in joda.js
 ```js
 const joda = require('world-clock/joda')
 ```
