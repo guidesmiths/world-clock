@@ -25,6 +25,26 @@ describe('World Clock', function() {
             fake.fix('2015-07-15T23:55:02Z')
             assert.equal(wc({ nowable: fake }).today('Europe/London').toString(), '2015-07-16')
         })
+
+        it('Just before switch to daylight savings', function() {
+            fake.fix('2016-03-27T00:55:02Z')
+            assert.equal(wc({ nowable: fake }).today('Europe/London').toString(), '2016-03-27')
+        })
+
+        it('On switch to daylight savings', function() {
+            fake.fix('2016-03-27T01:00:00Z')
+            assert.equal(wc({ nowable: fake }).today('Europe/London').toString(), '2016-03-27')
+        })
+
+        it('Just before switch from daylight savings', function() {
+            fake.fix('2016-10-30T01:55:02Z')
+            assert.equal(wc({ nowable: fake }).today('Europe/London').toString(), '2016-10-30')
+        })
+
+        it('On switch from daylight savings', function() {
+            fake.fix('2016-10-30T02:00:00Z')
+            assert.equal(wc({ nowable: fake }).today('Europe/London').toString(), '2016-10-30')
+        })
     })
 
     describe('localDate', function() {
@@ -63,6 +83,22 @@ describe('World Clock', function() {
 
         it('Custom time, daylight savings, end of day', function() {
             assert.equal(wc().localDate('Europe/London', new Date('2016-07-15T23:55:02Z').getTime()).toString(), '2016-07-16')
+        })
+
+        it('Just before switch to daylight savings', function() {
+            assert.equal(wc().localDate('Europe/London', new Date('2016-03-27T00:55:02Z').getTime()).toString(), '2016-03-27')
+        })
+
+        it('On switch to daylight savings', function() {
+            assert.equal(wc().localDate('Europe/London', new Date('2016-03-27T01:00:00Z').getTime()).toString(), '2016-03-27')
+        })
+
+        it('Just before switch from daylight savings', function() {
+            assert.equal(wc().localDate('Europe/London', new Date('2016-10-30T01:55:02Z').getTime()).toString(), '2016-10-30')
+        })
+
+        it('On switch from daylight savings', function() {
+            assert.equal(wc().localDate('Europe/London', new Date('2016-10-30T02:00:00Z').getTime()).toString(), '2016-10-30')
         })
     })
 
@@ -103,6 +139,22 @@ describe('World Clock', function() {
         it('Custom time, daylight savings, end of day', function() {
             assert.equal(wc().localTime('Europe/London', new Date('2016-07-15T23:55:02Z').getTime()).toString(), '00:55:02')
         })
+
+        it('Just before switch to daylight savings', function() {
+            assert.equal(wc().localTime('Europe/London', new Date('2016-03-27T00:55:02Z').getTime()).toString(), '00:55:02')
+        })
+
+        it('On switch to daylight savings', function() {
+            assert.equal(wc().localTime('Europe/London', new Date('2016-03-27T01:00:00Z').getTime()).toString(), '02:00')
+        })
+
+        it('Just before switch from daylight savings', function() {
+            assert.equal(wc().localTime('Europe/London', new Date('2016-10-30T01:55:02Z').getTime()).toString(), '01:55:02')
+        })
+
+        it('On switch from daylight savings', function() {
+            assert.equal(wc().localTime('Europe/London', new Date('2016-10-30T02:00:00Z').getTime()).toString(), '02:00')
+        })
     })
 
     describe('localDateTime', function() {
@@ -142,6 +194,22 @@ describe('World Clock', function() {
         it('Custom time, daylight savings, end of day', function() {
             assert.equal(wc().localDateTime('Europe/London', new Date('2016-07-15T23:55:02Z').getTime()).toString(), '2016-07-16T00:55:02')
         })
+
+        it('Just before switch to daylight savings', function() {
+            assert.equal(wc().localDateTime('Europe/London', new Date('2016-03-27T00:55:02Z').getTime()).toString(), '2016-03-27T00:55:02')
+        })
+
+        it('On switch to daylight savings', function() {
+            assert.equal(wc().localDateTime('Europe/London', new Date('2016-03-27T01:00:00Z').getTime()).toString(), '2016-03-27T02:00')
+        })
+
+        it('Just before switch from daylight savings', function() {
+            assert.equal(wc().localDateTime('Europe/London', new Date('2016-10-30T01:55:02Z').getTime()).toString(), '2016-10-30T01:55:02')
+        })
+
+        it('On switch from daylight savings', function() {
+            assert.equal(wc().localDateTime('Europe/London', new Date('2016-10-30T02:00:00Z').getTime()).toString(), '2016-10-30T02:00')
+        })
     })
 
     describe('zonedDateTime', function() {
@@ -180,6 +248,22 @@ describe('World Clock', function() {
 
         it('Custom time, daylight savings, end of day', function() {
             assert.equal(wc().zonedDateTime('Europe/London', new Date('2016-07-15T23:55:02Z').getTime()).toString(), '2016-07-16T00:55:02+01:00')
+        })
+
+        it('Just before switch to daylight savings', function() {
+            assert.equal(wc().zonedDateTime('Europe/London', new Date('2016-03-27T00:55:02Z').getTime()).toString(), '2016-03-27T00:55:02Z')
+        })
+
+        it('On switch to daylight savings', function() {
+            assert.equal(wc().zonedDateTime('Europe/London', new Date('2016-03-27T01:00:00Z').getTime()).toString(), '2016-03-27T02:00+01:00')
+        })
+
+        it('Just before switch from daylight savings', function() {
+            assert.equal(wc().zonedDateTime('Europe/London', new Date('2016-10-30T01:55:02Z').getTime()).toString(), '2016-10-30T01:55:02Z')
+        })
+
+        it('On switch from daylight savings', function() {
+            assert.equal(wc().zonedDateTime('Europe/London', new Date('2016-10-30T02:00:00Z').getTime()).toString(), '2016-10-30T02:00Z')
         })
     })
 
