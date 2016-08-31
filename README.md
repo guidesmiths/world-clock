@@ -12,10 +12,10 @@ A library for getting dates/times in explicit timezones, underwritten by [js-jod
 ## API
 * worldClock([&lt;nowable&gt;])
 * worldClock().today(&lt;timezone&gt;) returns an instance of [js-joda.LocalDate](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDate.js~LocalDate.html)
-* worldClock().localDate(&lt;timezone&gt;, [&lt;millis&gt;]) returns an instance of [js-joda.LocalDate](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDate.js~LocalDate.html)
-* worldClock().localTime(&lt;timezone&gt;, [&lt;millis&gt;]) returns an instance of [js-joda.LocalTime](https://js-joda.github.io/js-joda/esdoc/class/src/LocalTime.js~LocalTime.html)
-* worldClock().localDateTime(&lt;timezone&gt;, [&lt;millis&gt;]) returns an instance of [js-joda.LocalDateTime](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDateTime.js~LocalDateTime.html)
-* worldClock().zonedDateTime(&lt;timezone&gt;, [&lt;millis&gt;]) returns an instance of [js-joda.ZonedDateTime](https://js-joda.github.io/js-joda/esdoc/class/src/ZonedDateTime.js~ZonedDateTime.html)
+* worldClock().localDate(&lt;timezone&gt;, [&lt;millis|date|ISO 8601 date string&gt;]) returns an instance of [js-joda.LocalDate](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDate.js~LocalDate.html)
+* worldClock().localTime(&lt;timezone&gt;, [&lt;millis|date|ISO 8601 date string&gt;]) returns an instance of [js-joda.LocalTime](https://js-joda.github.io/js-joda/esdoc/class/src/LocalTime.js~LocalTime.html)
+* worldClock().localDateTime(&lt;timezone&gt;, [&lt;millis|date|ISO 8601 date string&gt;]) returns an instance of [js-joda.LocalDateTime](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDateTime.js~LocalDateTime.html)
+* worldClock().zonedDateTime(&lt;timezone&gt;, [&lt;millis|date|ISO 8601 date string&gt;]) returns an instance of [js-joda.ZonedDateTime](https://js-joda.github.io/js-joda/esdoc/class/src/ZonedDateTime.js~ZonedDateTime.html)
 
 ## Getting the current date/time in a specific time zone
 ```js
@@ -38,17 +38,17 @@ worldClock.zonedDateTime('UTC').toString()            // 2016-08-27T14:03.24+00:
 ## Getting a specific date/time in a specific time zone
 ```js
 const worldClock = require('world-clock')()
-const millis = new Date('2016-08-27T14:03.24+00:00').getTime()
+const date = new Date('2016-08-27T14:03.24+00:00')
 
-worldClock.localDate('Europe/London', millis).toString()      // 2016-08-27
-worldClock.localTime('Europe/London', millis).toString()      // 15:03:24
-worldClock.localDateTime('Europe/London', millis).toString()  // 2016-08-27T15:03.24
-worldClock.zonedDateTime('Europe/London', millis).toString()  // 2016-08-27T15:03.24+01:00
+worldClock.localDate('Europe/London', date).toString()      // 2016-08-27
+worldClock.localTime('Europe/London', date).toString()      // 15:03:24
+worldClock.localDateTime('Europe/London', date).toString()  // 2016-08-27T15:03.24
+worldClock.zonedDateTime('Europe/London', date).toString()  // 2016-08-27T15:03.24+01:00
 
-worldClock.localDate('UTC', millis).toString()                // 2016-08-27
-worldClock.localTime('UTC', millis).toString()                // 14:03:24
-worldClock.localDateTime('UTC', millis).toString()            // 2016-08-27T14:03.24
-worldClock.zonedDateTime('UTC', millis).toString()            // 2016-08-27T14:03.24+00:00
+worldClock.localDate('UTC', date).toString()                // 2016-08-27
+worldClock.localTime('UTC', date).toString()                // 14:03:24
+worldClock.localDateTime('UTC', date).toString()            // 2016-08-27T14:03.24
+worldClock.zonedDateTime('UTC', date).toString()            // 2016-08-27T14:03.24+00:00
 ```
 
 ## Getting the current date/time in the system time zone

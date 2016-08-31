@@ -18,20 +18,24 @@ module.exports = function(options) {
     }
 
     function zonedDateTime(timezone, at) {
-        var now = clock.now()
-        return joda.ZonedDateTime.ofInstant(instant(at || now), zoneId(timezone, at || now))
+        if (!timezone) throw new Error('A timezone is required')
+        if (!zoneinfo.isTimezone(timezone)) throw new Error(timezone + ' is not a valid timezone')
+
+        var millis = at ? new Date(at).getTime() : clock.now()
+        if (isNaN(new Date(millis).getTime())) throw new Error(at + ' is not a valid instant')
+        return joda.ZonedDateTime.ofInstant(instant(millis), zoneId(timezone, millis))
     }
 
     function localDateTime(timezone, at) {
-        return zonedDateTime(timezone, at || clock.now()).toLocalDateTime()
+        return zonedDateTime(timezone, at).toLocalDateTime()
     }
 
     function localTime(timezone, at) {
-        return zonedDateTime(timezone, at || clock.now()).toLocalTime()
+        return zonedDateTime(timezone, at).toLocalTime()
     }
 
     function localDate(timezone, at) {
-        return zonedDateTime(timezone, at || clock.now()).toLocalDate()
+        return zonedDateTime(timezone, at).toLocalDate()
     }
 
     function today(timezone) {
