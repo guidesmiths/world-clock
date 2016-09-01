@@ -11,11 +11,14 @@ A library for getting dates/times in explicit timezones, underwritten by [js-jod
 
 ## API
 * worldClock([&lt;nowable&gt;])
+* worldClock().isValid(&lt;timezone&gt;, [&lt;millis|date|string&gt;]) returns whether the timezone and optional instant is valid
 * worldClock().today(&lt;timezone&gt;) returns an instance of [js-joda.LocalDate](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDate.js~LocalDate.html)
 * worldClock().localDate(&lt;timezone&gt;, [&lt;millis|date|string&gt;]) returns an instance of [js-joda.LocalDate](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDate.js~LocalDate.html)
 * worldClock().localTime(&lt;timezone&gt;, [&lt;millis|date|string&gt;]) returns an instance of [js-joda.LocalTime](https://js-joda.github.io/js-joda/esdoc/class/src/LocalTime.js~LocalTime.html)
 * worldClock().localDateTime(&lt;timezone&gt;, [&lt;millis|date|string&gt;]) returns an instance of [js-joda.LocalDateTime](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDateTime.js~LocalDateTime.html)
 * worldClock().zonedDateTime(&lt;timezone&gt;, [&lt;millis|date|string&gt;]) returns an instance of [js-joda.ZonedDateTime](https://js-joda.github.io/js-joda/esdoc/class/src/ZonedDateTime.js~ZonedDateTime.html)
+
+The today, localDate, localTime, localDateTime and zonedDateTime functions will throw an error if passed an invalid timezone or instant. Use worldClock.isValid(.isValid(&lt;timezone&gt;, [&lt;millis|date|string&gt;]) if you want to test before calling them.
 
 ## Getting the current date/time in a specific time zone
 ```js

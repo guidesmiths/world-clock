@@ -4,6 +4,31 @@ const wc = require('..')
 
 describe('World Clock', function() {
 
+    describe('isValid', function() {
+
+        it('should report valid timezones', function() {
+            assert(wc().isValid('UTC'), 'UTC is a valid timezone')
+            assert(wc().isValid('SYSTEM'), 'SYSTEM is a valid timezone (at least as far as js-joda is concerned')
+            assert(wc().isValid('Europe/London'), 'Europe/London is a valid timezone')
+        })
+
+        it('should report invalid timezones', function() {
+            assert(!wc().isValid('Foo/Bar'), 'Foo/Bar is not a valid timezone')
+        })
+
+        it('should report valid instants', function() {
+            assert(wc().isValid('Europe/London', 0))
+            assert(wc().isValid('Europe/London', '2015-12-15T00:01:02Z'))
+            assert(wc().isValid('Europe/London', new Date()))
+        })
+
+        it('should report invalid instants', function() {
+            assert(!wc().isValid('Europe/London', 1/0))
+            assert(!wc().isValid('Europe/London', 'wibble'))
+            assert(!wc().isValid('Europe/London', new Date('wibble')))
+        })
+    })
+
     describe('today', function() {
 
         it('Current time, no daylight savings, start of day', function() {
@@ -49,7 +74,7 @@ describe('World Clock', function() {
         it('No args', function() {
             assert.throws(function() {
                 wc().today()
-            }, /A timezone is required/)
+            }, /undefined is not a valid timezone/)
         })
 
         it('Invalid timezone', function() {
@@ -116,7 +141,7 @@ describe('World Clock', function() {
         it('No args', function() {
             assert.throws(function() {
                 wc().localDate()
-            }, /A timezone is required/)
+            }, /undefined is not a valid timezone/)
         })
 
         it('Invalid timezone', function() {
@@ -189,7 +214,7 @@ describe('World Clock', function() {
         it('No args', function() {
             assert.throws(function() {
                 wc().localTime()
-            }, /A timezone is required/)
+            }, /undefined is not a valid timezone/)
         })
 
         it('Invalid timezone', function() {
@@ -262,7 +287,7 @@ describe('World Clock', function() {
         it('No args', function() {
             assert.throws(function() {
                 wc().localDateTime()
-            }, /A timezone is required/)
+            }, /undefined is not a valid timezone/)
         })
 
         it('Invalid timezone', function() {
@@ -335,7 +360,7 @@ describe('World Clock', function() {
         it('No args', function() {
             assert.throws(function() {
                 wc().zonedDateTime()
-            }, /A timezone is required/)
+            }, /undefined is not a valid timezone/)
         })
 
         it('Invalid timezone', function() {

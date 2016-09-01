@@ -18,11 +18,10 @@ module.exports = function(options) {
     }
 
     function zonedDateTime(timezone, at) {
-        if (!timezone) throw new Error('A timezone is required')
-        if (!zoneinfo.isTimezone(timezone)) throw new Error(timezone + ' is not a valid timezone')
+        if (!isValidTimezone(timezone)) throw new Error(timezone + ' is not a valid timezone')
+        if (at && !isValidInstant(at)) throw new Error(at + ' is not a valid instant')
 
         var millis = at ? new Date(at).getTime() : clock.now()
-        if (isNaN(new Date(millis).getTime())) throw new Error(at + ' is not a valid instant')
         return joda.ZonedDateTime.ofInstant(instant(millis), zoneId(timezone, millis))
     }
 
@@ -42,7 +41,20 @@ module.exports = function(options) {
         return localDate(timezone)
     }
 
+    function isValid(timezone, at) {
+        return isValidTimezone(timezone) && (!at || isValidInstant(at))
+    }
+
+    function isValidTimezone(timezone) {
+        return timezone === 'SYSTEM' || zoneinfo.isTimezone(timezone)
+    }
+
+    function isValidInstant(at) {
+        return !isNaN(new Date(at).getTime())
+    }
+
     return {
+        isValid: isValid,
         today: today,
         localDate: localDate,
         localTime: localTime,
