@@ -22,7 +22,7 @@
   "author": "GuideSmiths Ltd",
   "license": "ISC",
   "dependencies": {
-    "js-joda": "^1.1.9",
+    "js-joda": "^1.1.12",
     "zoneinfo": "^0.1.8"
   },
   "devDependencies": {
