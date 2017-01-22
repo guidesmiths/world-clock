@@ -17,13 +17,30 @@ A library for getting dates/times in explicit timezones, underwritten by [js-jod
 [js-joda](https://github.com/js-joda/js-joda) cannot yet convert timezone names (e.g. 'Europe/London') to its internal representation of a timezone. Until [this issue](https://github.com/js-joda/js-joda/issues/32) is closed you need to use the timezone offset, which varies depending on daylight saving. ```world-clock``` relies on [zoneinfo](https://github.com/gsmcwhirter/node-zoneinfo) to convert the timezone name to an offset, then passes the offset to [js-joda](https://github.com/js-joda/js-joda) to create immutable LocalDate/LocalTime/LocalDateTime/ZonedDateTime objects.
 
 ## API
-* worldClock([options])
-* worldClock().isValid(&lt;timezone&gt;, [&lt;millis|date|string&gt;]) returns whether the timezone and optional instant is valid
-* worldClock().today(&lt;timezone&gt;) returns an instance of [js-joda.LocalDate](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDate.js~LocalDate.html)
-* worldClock().localDate(&lt;timezone&gt;, [&lt;millis|date|string&gt;]) returns an instance of [js-joda.LocalDate](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDate.js~LocalDate.html)
-* worldClock().localTime(&lt;timezone&gt;, [&lt;millis|date|string&gt;]) returns an instance of [js-joda.LocalTime](https://js-joda.github.io/js-joda/esdoc/class/src/LocalTime.js~LocalTime.html)
-* worldClock().localDateTime(&lt;timezone&gt;, [&lt;millis|date|string&gt;]) returns an instance of [js-joda.LocalDateTime](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDateTime.js~LocalDateTime.html)
-* worldClock().zonedDateTime(&lt;timezone&gt;, [&lt;millis|date|string&gt;]) returns an instance of [js-joda.ZonedDateTime](https://js-joda.github.io/js-joda/esdoc/class/src/ZonedDateTime.js~ZonedDateTime.html)
+```
+worldClock([<options>]).isValid(<timezone>, [<millis|date|string>])
+```
+Returns whether the timezone and optional instant is valid
+```
+worldClock([<options>]).today(<timezone>)
+```
+Returns an instance of [js-joda.LocalDate](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDate.js~LocalDate.html)
+```
+worldClock([<options>]).localDate(<timezone>, [<millis|date|string>])
+```
+Returns an instance of [js-joda.LocalDate](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDate.js~LocalDate.html)
+```
+worldClock([<options>]).localTime(<timezone>, [<millis|date|string>])
+```
+Returns an instance of [js-joda.LocalTime](https://js-joda.github.io/js-joda/esdoc/class/src/LocalTime.js~LocalTime.html)
+```
+worldClock([<options>]).localDateTime(<timezone>, [<millis|date|string>])
+```
+Returns an instance of [js-joda.LocalDateTime](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDateTime.js~LocalDateTime.html)
+```
+worldClock([<options>]).zonedDateTime(<timezone>, [<millis|date|string>])
+```
+Returns an instance of [js-joda.ZonedDateTime](https://js-joda.github.io/js-joda/esdoc/class/src/ZonedDateTime.js~ZonedDateTime.html)
 
 The ```today```, ```localDate```, ```localTime```, ```localDateTime``` and ```zonedDateTime``` functions will throw an error if passed an invalid timezone or instant. Use ```isValid``` if you want to test before calling them.
 
