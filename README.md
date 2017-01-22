@@ -17,27 +17,38 @@ A library for getting dates/times in explicit timezones, underwritten by [js-jod
 [js-joda](https://github.com/js-joda/js-joda) cannot yet convert timezone names (e.g. 'Europe/London') to its internal representation of a timezone. Until [this issue](https://github.com/js-joda/js-joda/issues/32) is closed you need to use the timezone offset, which varies depending on daylight saving. ```world-clock``` relies on [zoneinfo](https://github.com/gsmcwhirter/node-zoneinfo) to convert the timezone name to an offset, then passes the offset to [js-joda](https://github.com/js-joda/js-joda) to create immutable LocalDate/LocalTime/LocalDateTime/ZonedDateTime objects.
 
 ## API
+### isValid
 ```
 worldClock([<options>]).isValid(<timezone>, [<millis|date|string>])
 ```
 Returns whether the timezone and optional instant is valid
+
+### today
 ```
 worldClock([<options>]).today(<timezone>)
 ```
 Returns an instance of [js-joda.LocalDate](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDate.js~LocalDate.html)
+
+### localDate
 ```
 worldClock([<options>]).localDate(<timezone>, [<millis|date|string>])
 ```
 Returns an instance of [js-joda.LocalDate](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDate.js~LocalDate.html)
+
+### localTime
 ```
 worldClock([<options>]).localTime(<timezone>, [<millis|date|string>])
 ```
 Returns an instance of [js-joda.LocalTime](https://js-joda.github.io/js-joda/esdoc/class/src/LocalTime.js~LocalTime.html)
+
+### localDateTime
 ```
 worldClock([<options>]).localDateTime(<timezone>, [<millis|date|string>])
 ```
 Returns an instance of [js-joda.LocalDateTime](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDateTime.js~LocalDateTime.html)
 ```
+
+### zonedDateTime
 worldClock([<options>]).zonedDateTime(<timezone>, [<millis|date|string>])
 ```
 Returns an instance of [js-joda.ZonedDateTime](https://js-joda.github.io/js-joda/esdoc/class/src/ZonedDateTime.js~ZonedDateTime.html)
