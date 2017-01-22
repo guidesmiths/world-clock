@@ -53,6 +53,8 @@ worldClock([<options>]).zonedDateTime(<timezone>, [<millis|date|string>])
 ```
 Returns an instance of [js-joda.ZonedDateTime](https://js-joda.github.io/js-joda/esdoc/class/src/ZonedDateTime.js~ZonedDateTime.html)
 
+
+** Please Note: **
 The ```today```, ```localDate```, ```localTime```, ```localDateTime``` and ```zonedDateTime``` functions will throw an error if passed an invalid timezone or instant. Use ```isValid``` if you want to test before calling them.
 
 ## Getting the current date/time in a specific time zone
