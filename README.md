@@ -1,7 +1,14 @@
-[![Build Status](https://img.shields.io/travis/guidesmiths/world-clock/master.svg)](https://travis-ci.org/guidesmiths/world-clock)
-[![Code Style](https://img.shields.io/badge/code%20style-imperative-brightgreen.svg)](https://github.com/guidesmiths/eslint-config-imperative)
 # world-clock
 A library for getting dates/times in explicit timezones, underwritten by [js-joda](https://github.com/js-joda/js-joda) and [zoneinfo](https://github.com/gsmcwhirter/node-zoneinfo). The latter parses zoneinfo files from ```/usr/share/zoneinfo``` and therefore will not work on windows.
+
+[![NPM version](https://img.shields.io/npm/v/world-clock.svg?style=flat-square)](https://www.npmjs.com/package/world-clock)
+[![NPM downloads](https://img.shields.io/npm/dm/world-clock.svg?style=flat-square)](https://www.npmjs.com/package/world-clock)
+[![Build Status](https://img.shields.io/travis/guidesmiths/world-clock/master.svg)](https://travis-ci.org/guidesmiths/world-clock)
+[![Code Climate](https://codeclimate.com/github/guidesmiths/world-clock/badges/gpa.svg)](https://codeclimate.com/github/guidesmiths/world-clock)
+[![Test Coverage](https://codeclimate.com/github/guidesmiths/world-clock/badges/coverage.svg)](https://codeclimate.com/github/guidesmiths/world-clock/coverage)
+[![Code Style](https://img.shields.io/badge/code%20style-imperative-brightgreen.svg)](https://github.com/guidesmiths/eslint-config-imperative)
+[![Dependency Status](https://david-dm.org/guidesmiths/world-clock.svg)](https://david-dm.org/guidesmiths/world-clock)
+[![devDependencies Status](https://david-dm.org/guidesmiths/world-clock/dev-status.svg)](https://david-dm.org/guidesmiths/world-clock?type=dev)
 
 ## Why not use moment-timezone?
 [moment-timezone](https://github.com/moment/moment-timezone) is mutable which can result in hard to diagnose bugs. It lacks support for local dates/times and is restricted by trying to remain compatible with [moment](https://github.com/moment/moment).

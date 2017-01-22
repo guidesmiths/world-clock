@@ -4,8 +4,10 @@
   "description": "A world clock underwritten by js-joda and zoneinfo",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests",
+    "test": "mocha test",
     "lint": "eslint .",
+    "istanbul": "istanbul cover --report html --report lcov _mocha",
+    "codeclimate": "codeclimate-test-reporter < coverage/lcov.info",
     "precommit": "npm run lint && npm test"
   },
   "keywords": [
@@ -26,13 +28,15 @@
     "zoneinfo": "^0.1.8"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "eslint": "^0.23.0",
-    "eslint-config-imperative": "0.0.6",
-    "eslint-plugin-imperative": "0.0.2",
     "groundhog-day": "^1.0.1",
-    "husky": "^0.11.6",
-    "mocha": "^3.0.2"
+    "chai": "^3.5.0",
+    "codeclimate-test-reporter": "^0.4.0",
+    "eslint": "^3.12.2",
+    "eslint-config-imperative": "^1.0.0",
+    "eslint-plugin-imperative": "^1.0.0",
+    "husky": "^0.13.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0"
   },
   "directories": {
     "test": "tests"
@@ -44,5 +48,5 @@
   "bugs": {
     "url": "https://github.com/guidesmiths/world-clock/issues"
   },
-  "homepage": "https://github.com/guidesmiths/world-clock#readme"
+  "homepage": "https://guidesmiths.github.io/world-clock/"
 }
