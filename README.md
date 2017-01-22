@@ -46,9 +46,9 @@ Returns an instance of [js-joda.LocalTime](https://js-joda.github.io/js-joda/esd
 worldClock([<options>]).localDateTime(<timezone>, [<millis|date|string>])
 ```
 Returns an instance of [js-joda.LocalDateTime](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDateTime.js~LocalDateTime.html)
-```
 
 ### zonedDateTime
+```
 worldClock([<options>]).zonedDateTime(<timezone>, [<millis|date|string>])
 ```
 Returns an instance of [js-joda.ZonedDateTime](https://js-joda.github.io/js-joda/esdoc/class/src/ZonedDateTime.js~ZonedDateTime.html)
