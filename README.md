@@ -24,34 +24,34 @@ worldClock([<options>]).isValid(<timezone>, [<millis|date|string>])
 Returns whether the timezone and optional instant is valid
 
 ### today
+Returns an instance of [js-joda.LocalDate](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDate.js~LocalDate.html)
 ```
 worldClock([<options>]).today(<timezone>)
 ```
-Returns an instance of [js-joda.LocalDate](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDate.js~LocalDate.html)
 
 ### localDate
-```
+Returns an instance of [js-joda.LocalDate](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDate.js~LocalDate.html)
+```js
 worldClock([<options>]).localDate(<timezone>, [<millis|date|string>])
 ```
-Returns an instance of [js-joda.LocalDate](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDate.js~LocalDate.html)
 
 ### localTime
+Returns an instance of [js-joda.LocalTime](https://js-joda.github.io/js-joda/esdoc/class/src/LocalTime.js~LocalTime.html)
 ```
 worldClock([<options>]).localTime(<timezone>, [<millis|date|string>])
 ```
-Returns an instance of [js-joda.LocalTime](https://js-joda.github.io/js-joda/esdoc/class/src/LocalTime.js~LocalTime.html)
 
 ### localDateTime
+Returns an instance of [js-joda.LocalDateTime](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDateTime.js~LocalDateTime.html)
 ```
 worldClock([<options>]).localDateTime(<timezone>, [<millis|date|string>])
 ```
-Returns an instance of [js-joda.LocalDateTime](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDateTime.js~LocalDateTime.html)
 
 ### zonedDateTime
+Returns an instance of [js-joda.ZonedDateTime](https://js-joda.github.io/js-joda/esdoc/class/src/ZonedDateTime.js~ZonedDateTime.html)
 ```
 worldClock([<options>]).zonedDateTime(<timezone>, [<millis|date|string>])
 ```
-Returns an instance of [js-joda.ZonedDateTime](https://js-joda.github.io/js-joda/esdoc/class/src/ZonedDateTime.js~ZonedDateTime.html)
 
 
 ** Please Note: **
