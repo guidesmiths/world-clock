@@ -18,10 +18,10 @@ A library for getting dates/times in explicit timezones, underwritten by [js-jod
 
 ## API
 ### isValid
+Returns whether the timezone and optional instant is valid
 ```
 worldClock([<options>]).isValid(<timezone>, [<millis|date|string>])
 ```
-Returns whether the timezone and optional instant is valid
 
 ### today
 Returns an instance of [js-joda.LocalDate](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDate.js~LocalDate.html)
