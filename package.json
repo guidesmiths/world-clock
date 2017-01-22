@@ -19,7 +19,8 @@
     "Zone",
     "Joda",
     "Daylight",
-    "Saving"
+    "Saving",
+    "local"
   ],
   "author": "GuideSmiths Ltd",
   "license": "ISC",
