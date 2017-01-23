@@ -12,7 +12,7 @@ A library for getting dates/times in explicit timezones.
 
 ## API
 
-### isValid(<timezone>, [<millis|date|string>])
+### isValid(&lt;timezone&gt;, [&lt;millis|date|string&gt;])
 Returns whether the timezone and optional instant is valid, e.g.
 ```js
 const clock = require('world-clock')()
@@ -20,7 +20,7 @@ const clock = require('world-clock')()
 clock.isValid('Europe/London', Date.now()) // true
 ```
 
-### today(<timezone>)
+### today(&lt;timezone&gt;)
 Returns an instance of [js-joda.LocalDate](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDate.js~LocalDate.html). Throws an error if passed an invalid timezone or instant.
 
 ```js
@@ -29,7 +29,7 @@ const clock = require('world-clock')()
 clock.today('Europe/London').toString() // 2016-08-27
 ```
 
-### localDate(<timezone>, [<millis|date|string>])
+### localDate(&lt;timezone&gt;, [&lt;millis|date|string&gt;])
 Returns an instance of [js-joda.LocalDate](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDate.js~LocalDate.html). Throws an error if passed an invalid timezone or instant.
 
 ```js
@@ -39,7 +39,7 @@ clock.localDate('Europe/London').toString()             // 2016-08-27
 clock.localDate('Europe/London', Date.now()).toString() // 2016-08-27
 ```
 
-### localTime(<timezone>, [<millis|date|string>])
+### localTime(&lt;timezone&gt;, [&lt;millis|date|string&gt;])
 Returns an instance of [js-joda.LocalTime](https://js-joda.github.io/js-joda/esdoc/class/src/LocalTime.js~LocalTime.html). Throws an error if passed an invalid timezone or instant.
 
 ```js
@@ -49,7 +49,7 @@ clock.localTime('Europe/London').toString()             // 15:03:24
 clock.localTime('Europe/London', Date.now()).toString() // 15:03:24
 ```
 
-### localDateTime(<timezone>, [<millis|date|string>])
+### localDateTime(&lt;timezone&gt;, [&lt;millis|date|string&gt;])
 Returns an instance of [js-joda.LocalDateTime](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDateTime.js~LocalDateTime.html). Throws an error if passed an invalid timezone or instant.
 
 ```js
@@ -59,7 +59,7 @@ clock.localDateTime('Europe/London').toString()             // 2016-08-27T15:03.
 clock.localDateTime('Europe/London', Date.now()).toString() // 2016-08-27T15:03.24
 ```
 
-### zonedDateTime(<timezone>, [<millis|date|string>])
+### zonedDateTime(&lt;timezone&gt;, [&lt;millis|date|string&gt;])
 Returns an instance of [js-joda.ZonedDateTime](https://js-joda.github.io/js-joda/esdoc/class/src/ZonedDateTime.js~ZonedDateTime.html). Throws an error if passed an invalid timezone or instant.
 
 ```js
