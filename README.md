@@ -23,93 +23,78 @@ world-clock relies on [zoneinfo](https://github.com/gsmcwhirter/node-zoneinfo) w
 
 ## API
 
-### isValid
-Returns whether the timezone and optional instant is valid
-```
-worldClock([<options>]).isValid(<timezone>, [<millis|date|string>])
-```
-
-### today
-Returns an instance of [js-joda.LocalDate](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDate.js~LocalDate.html)
-```
-worldClock([<options>]).today(<timezone>)
-```
-
-### localDate
-Returns an instance of [js-joda.LocalDate](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDate.js~LocalDate.html)
+### isValid(<timezone>, [<millis|date|string>])
+Returns whether the timezone and optional instant is valid, e.g.
 ```js
-worldClock([<options>]).localDate(<timezone>, [<millis|date|string>])
+const clock = require('world-clock')()
+
+clock.isValid('Europe/London', Date.now()) // true
 ```
 
-### localTime
-Returns an instance of [js-joda.LocalTime](https://js-joda.github.io/js-joda/esdoc/class/src/LocalTime.js~LocalTime.html)
-```
-worldClock([<options>]).localTime(<timezone>, [<millis|date|string>])
-```
+### today(<timezone>)
+Returns an instance of [js-joda.LocalDate](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDate.js~LocalDate.html). Throws an error if passed an invalid timezone or instant.
 
-### localDateTime
-Returns an instance of [js-joda.LocalDateTime](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDateTime.js~LocalDateTime.html)
-```
-worldClock([<options>]).localDateTime(<timezone>, [<millis|date|string>])
-```
-
-### zonedDateTime
-Returns an instance of [js-joda.ZonedDateTime](https://js-joda.github.io/js-joda/esdoc/class/src/ZonedDateTime.js~ZonedDateTime.html)
-```
-worldClock([<options>]).zonedDateTime(<timezone>, [<millis|date|string>])
-```
-
-
-**Please Note:**
-The ```today```, ```localDate```, ```localTime```, ```localDateTime``` and ```zonedDateTime``` functions will throw an error if passed an invalid timezone or instant. Use ```isValid``` if you want to test before calling them.
-
-## Getting the current date/time in a specific time zone
 ```js
-// Assuming the time is 2016-08-27T14:03.24+00:00
-const worldClock = require('world-clock')()
+const clock = require('world-clock')()
 
-worldClock.today('Europe/London').toString()          // 2016-08-27
-worldClock.localDate('Europe/London').toString()      // 2016-08-27 - same as today
-worldClock.localTime('Europe/London').toString()      // 15:03:24
-worldClock.localDateTime('Europe/London').toString()  // 2016-08-27T15:03.24
-worldClock.zonedDateTime('Europe/London').toString()  // 2016-08-27T15:03.24+01:00
-
-worldClock.today('UTC').toString()                    // 2016-08-27
-worldClock.localDate('UTC').toString()                // 2016-08-27 - same as today
-worldClock.localTime('UTC').toString()                // 14:03:24
-worldClock.localDateTime('UTC').toString()            // 2016-08-27T14:03.24
-worldClock.zonedDateTime('UTC').toString()            // 2016-08-27T14:03.24+00:00
+clock.today('Europe/London').toString() // 2016-08-27
 ```
 
-## Getting a specific date/time in a specific time zone
+### localDate(<timezone>, [<millis|date|string>])
+Returns an instance of [js-joda.LocalDate](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDate.js~LocalDate.html). Throws an error if passed an invalid timezone or instant.
+
 ```js
-const worldClock = require('world-clock')()
-const date = new Date('2016-08-27T14:03.24+00:00')
+const clock = require('world-clock')()
 
-worldClock.localDate('Europe/London', date).toString()      // 2016-08-27
-worldClock.localTime('Europe/London', date).toString()      // 15:03:24
-worldClock.localDateTime('Europe/London', date).toString()  // 2016-08-27T15:03.24
-worldClock.zonedDateTime('Europe/London', date).toString()  // 2016-08-27T15:03.24+01:00
-
-worldClock.localDate('UTC', date).toString()                // 2016-08-27
-worldClock.localTime('UTC', date).toString()                // 14:03:24
-worldClock.localDateTime('UTC', date).toString()            // 2016-08-27T14:03.24
-worldClock.zonedDateTime('UTC', date).toString()            // 2016-08-27T14:03.24+00:00
+clock.localDate('Europe/London').toString()             // 2016-08-27
+clock.localDate('Europe/London', Date.now()).toString() // 2016-08-27
 ```
 
-## Getting the current date/time in the system time zone
+### localTime(<timezone>, [<millis|date|string>])
+Returns an instance of [js-joda.LocalTime](https://js-joda.github.io/js-joda/esdoc/class/src/LocalTime.js~LocalTime.html). Throws an error if passed an invalid timezone or instant.
+
+```js
+const clock = require('world-clock')()
+
+clock.localTime('Europe/London').toString()             // 15:03:24
+clock.localTime('Europe/London', Date.now()).toString() // 15:03:24
+```
+
+### localDateTime(<timezone>, [<millis|date|string>])
+Returns an instance of [js-joda.LocalDateTime](https://js-joda.github.io/js-joda/esdoc/class/src/LocalDateTime.js~LocalDateTime.html). Throws an error if passed an invalid timezone or instant.
+
+```js
+const clock = require('world-clock')()
+
+clock.localDateTime('Europe/London').toString()             // 2016-08-27T15:03.24
+clock.localDateTime('Europe/London', Date.now()).toString() // 2016-08-27T15:03.24
+```
+
+### zonedDateTime(<timezone>, [<millis|date|string>])
+Returns an instance of [js-joda.ZonedDateTime](https://js-joda.github.io/js-joda/esdoc/class/src/ZonedDateTime.js~ZonedDateTime.html). Throws an error if passed an invalid timezone or instant.
+
+```js
+const clock = require('world-clock')()
+
+clock.zonedDateTime('Europe/London').toString()             // 2016-08-27T15:03.24+01:00
+clock.zonedDateTime('Europe/London', Date.now()).toString() // 2016-08-27T15:03.24+01:00
+```
+
+## Advanced Usage
+
+### Using the system time zone
 This is not recommented since a lot of date related bugs are caused because of accidental reliance on the system time zone, but if you really need to...
 ```js
-// Assuming the time is 2016-08-27T14:03.24+00:00 and system time zone is Europe/London
-const worldClock = require('world-clock')()
+const clock = require('world-clock')()
 
-worldClock.today('SYSTEM').toString()          // 2016-08-27
-worldClock.localDate('SYSTEM').toString()      // 2016-08-27 - same as today
-worldClock.localTime('SYSTEM').toString()      // 15:03:24
-worldClock.localDateTime('SYSTEM').toString()  // 2016-08-27T15:03.24
-worldClock.zonedDateTime('SYSTEM').toString()  // 2016-08-27T15:03.24+01:00[SYSTEM]
+clock.today('SYSTEM').toString()          // 2016-08-27
+clock.localDate('SYSTEM').toString()      // 2016-08-27 - same as today
+clock.localTime('SYSTEM').toString()      // 15:03:24
+clock.localDateTime('SYSTEM').toString()  // 2016-08-27T15:03.24
+clock.zonedDateTime('SYSTEM').toString()  // 2016-08-27T15:03.24+01:00[SYSTEM]
 ```
-## Fixing dates
+
+### Fixing dates
 For automatied testing it can be handy to fix time to a known instant. ```world-clock``` can be passed any 'nowable' object, i.e. one that exposes a ```now()``` function. e.g.
 ```js
 const options = {
@@ -117,13 +102,13 @@ const options = {
         now: () => new Date('2016-08-27T14:03.24Z').getTime()
     }
 }
-const worldClock = require('world-clock')(options)
+const clock = require('world-clock')(options)
 
-worldClock.today('Europe/London').toString()          // 2016-08-27
+clock.today('Europe/London').toString()          // 2016-08-27
 ```
 We use [groundhog-day](https://github.com/guidesmiths/groundhog-day) for fixing time when testing.
 
-## Getting / Setting Joda
+### Getting / Setting Joda
 ```world-clock``` exposes its version of js-joda in joda.js
 ```js
 const joda = require('world-clock/joda')
@@ -133,5 +118,5 @@ You can also supply the version of js-joda that ```world-clock``` will use by pr
 const options = {
     joda: require('js-joda')
 }
-const worldClock = require('world-clock')(options)
+const clock = require('world-clock')(options)
 ```
