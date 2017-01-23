@@ -10,17 +10,6 @@ A library for getting dates/times in explicit timezones.
 [![Dependency Status](https://david-dm.org/guidesmiths/world-clock.svg)](https://david-dm.org/guidesmiths/world-clock)
 [![devDependencies Status](https://david-dm.org/guidesmiths/world-clock/dev-status.svg)](https://david-dm.org/guidesmiths/world-clock?type=dev)
 
-## FAQ
-
-### Why not use moment-timezone?
-[moment-timezone](https://github.com/moment/moment-timezone) is mutable which can result in hard to diagnose bugs. It lacks support for local dates/times and is restricted by trying to remain compatible with [moment](https://github.com/moment/moment).
-
-### Why not use js-joda?
-[js-joda](https://github.com/js-joda/js-joda) does not currently handle timezone names (e.g. 'Europe/London'). This issue is being tracked [here](https://github.com/js-joda/js-joda/issues/32).
-
-### Why doesn't world-clock work on Windows?
-world-clock relies on [zoneinfo](https://github.com/gsmcwhirter/node-zoneinfo) which parses zoneinfo files from ```/usr/share/zoneinfo```. It therefore does not work on windows.
-
 ## API
 
 ### isValid(<timezone>, [<millis|date|string>])
@@ -120,3 +109,14 @@ const options = {
 }
 const clock = require('world-clock')(options)
 ```
+
+## FAQ
+
+### Why not use moment-timezone?
+[moment-timezone](https://github.com/moment/moment-timezone) is mutable which can result in hard to diagnose bugs. It lacks support for local dates/times and is restricted by trying to remain compatible with [moment](https://github.com/moment/moment).
+
+### Why not use js-joda?
+[js-joda](https://github.com/js-joda/js-joda) does not currently handle timezone names (e.g. 'Europe/London'). This issue is being tracked [here](https://github.com/js-joda/js-joda/issues/32).
+
+### Why doesn't world-clock work on Windows?
+world-clock relies on [zoneinfo](https://github.com/gsmcwhirter/node-zoneinfo) which parses zoneinfo files from ```/usr/share/zoneinfo```. It therefore does not work on windows.
