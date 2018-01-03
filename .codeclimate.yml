@@ -1,13 +1,17 @@
+version: "2"
 engines:
   eslint:
     enabled: false
   duplication:
-    enabled: false
+    enabled: true
     config:
       languages:
       - javascript
-    exclude_paths:
-      - test/**
+checks:
+  method-complexity:
+    enabled: false
+  method-lines:
+    enabled: false
 
 ratings:
   paths:
