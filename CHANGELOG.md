@@ -1,6 +1,7 @@
 # Change Log
 
 ## [Unreleased]
+- Update dependencies
 - Remove support for Node 0.10 and 0.11
 
 ## [1.3.1]
