@@ -1,5 +1,8 @@
 # Change Log
 
+## [Unreleased]
+- Remove support for Node 0.10 and 0.11
+
 ## [1.3.1]
 ### Changed
 - Improved README
