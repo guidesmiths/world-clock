@@ -25,19 +25,18 @@
   "author": "GuideSmiths Ltd",
   "license": "ISC",
   "dependencies": {
-    "js-joda": "^1.6.2",
+    "js-joda": "^1.9.2",
     "zoneinfo": "^0.1.8"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "codeclimate-test-reporter": "^0.4.1",
-    "eslint": "^3.19.0",
-    "eslint-config-imperative": "^1.0.0",
-    "eslint-plugin-imperative": "^1.0.0",
-    "groundhog-day": "^1.1.1",
-    "husky": "^0.13.0",
+    "chai": "^4.2.0",
+    "eslint": "^5.6.1",
+    "eslint-config-imperative": "^2.1.0",
+    "eslint-plugin-imperative": "^2.1.0",
+    "groundhog-day": "^1.2.0",
+    "husky": "^1.1.1",
     "istanbul": "^0.4.5",
-    "mocha": "^3.5.3"
+    "mocha": "^5.2.0"
   },
   "directories": {
     "test": "tests"
